@@ -20,7 +20,7 @@ class pdnsd::params {
     'RedHat': {
       $config          = '/etc/pdnsd.conf'
       $package_name    = [ 'pdnsd' ]
-      $service_name    = 'pdnsdd'
+      $service_name    = 'pdnsd'
     }
     'SuSE': {
       $config          = '/etc/pdnsd.conf'
@@ -30,12 +30,12 @@ class pdnsd::params {
     'FreeBSD': {
       $config          = '/etc/pdnsd.conf'
       $package_name    = ['net/pdnsd']
-      $service_name    = 'pdnsdd'
+      $service_name    = 'pdnsd'
     }
     'Archlinux': {
       $config          = '/etc/pdnsd.conf'
       $package_name    = [ 'pdnsd' ]
-      $service_name    = 'pdnsdd'
+      $service_name    = 'pdnsd'
     }
     'Linux': {
       # Account for distributions that don't have $::osfamily specific settings.
@@ -43,7 +43,7 @@ class pdnsd::params {
         'Gentoo': {
           $config          = '/etc/pdnsd.conf'
           $package_name    = ['net-dns/pdnsd']
-          $service_name    = 'pdnsdd'
+          $service_name    = 'pdnsd'
         }
         default: {
           fail("The ${module_name} module is not supported on an ${::operatingsystem} distribution.")
