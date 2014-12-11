@@ -18,6 +18,8 @@ class pdnsd (
   validate_bool($service_manage)
   validate_string($service_name)
 
+  $preferred_servers  = hiera_hash(pdnsd::preferred_servers, undef )
+
   include '::pdnsd::install'
   include '::pdnsd::config'
   include '::pdnsd::service'

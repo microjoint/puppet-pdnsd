@@ -1,15 +1,14 @@
 class pdnsd::params {
 
-  $config_template    = 'pdnsd/pdnsd.conf.erb'
-  $package_ensure     = 'present'
-  $preferred_servers  = []
-  $service_enable     = true
-  $service_ensure     = 'running'
-  $service_manage     = true
-	$server_ip          = '127.0.0.1'
+  $config_template    = hiera(pdnsd::config_template, 'pdnsd/pdnsd.conf.erb' )
+  $package_ensure     = hiera(pdnsd::package_ensure, 'present' )
+  $service_enable     = hiera(pdnsd::service_enable, true )
+  $service_ensure     = hiera(pdnsd::service_ensure, 'running' )
+  $service_manage     = hiera(pdnsd::service_manage, true )
+  $server_ip          = hiera(pdnsd::server_ip, '127.0.0.1' )
 
-  $perm_cache         = 2048
-	$cache_dir          = '/var/cache/pdnsd'
+  $perm_cache         = hiera(pdnsd::perm_cache, 16384)
+  $cache_dir          = hiera(pdnsd::cache_dir, '/var/cache/pdnsd')
 
   case $::osfamily {
     'Debian': {
