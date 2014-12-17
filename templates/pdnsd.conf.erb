@@ -29,7 +29,9 @@ server {
                                                 # from outside name servers.
     timeout=<%= server['timeout'] %>;           # Server timeout; this may be much shorter
                                                 # that the global timeout option.
+    <% if server['uptest'] %>
     uptest=<%= server['uptest'] %>;             # Test if the network interface is active.
+    <% end %>
     interface=eth0;                             # The name of the interface to check.
     interval=10m;                               # Check every 10 minutes.
     purge_cache=off;                            # Keep stale cache entries in case the ISP's

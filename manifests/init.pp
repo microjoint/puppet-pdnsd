@@ -7,6 +7,7 @@ class pdnsd (
   $service_ensure    = $pdnsd::params::service_ensure,
   $service_manage    = $pdnsd::params::service_manage,
   $service_name      = $pdnsd::params::service_name,
+  $daemon_run        = $pdnsd::params::daemon_run,
 ) inherits pdnsd::params {
 
   validate_absolute_path($config)
