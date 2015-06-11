@@ -29,9 +29,9 @@ server {
                                                 # from outside name servers.
     timeout=<%= server['timeout'] %>;           # Server timeout; this may be much shorter
                                                 # that the global timeout option.
-    <% if server['uptest'] %>
+    <% if server['uptest'] -%>
     uptest=<%= server['uptest'] %>;             # Test if the network interface is active.
-    <% end %>
+    <% end -%>
     interface=eth0;                             # The name of the interface to check.
     interval=10m;                               # Check every 10 minutes.
     purge_cache=off;                            # Keep stale cache entries in case the ISP's
@@ -41,7 +41,7 @@ server {
                                                 # legacy systems.
     <% if server['exclude'] -%>
     exclude=<%= server['exclude'].join(', ') %>;
-    <% end %>
+    <% end -%>
                                                 # exclude=.thepiratebay.org,                          # If your ISP censors certain names, you may
                                                 # .thepiratebay.se,                                   # want to exclude them here, and provide an
                                                 # .piratebay.org,                                     # alternative server section below that will
@@ -49,7 +49,7 @@ server {
     <% if server['reject'] -%>
     reject=<%= server['reject'].join(', ') %>;
     reject_policy=<%= server['reject_policy'] %>;
-    <% end %>
+    <% end -%>
 }
 <% end %>
 

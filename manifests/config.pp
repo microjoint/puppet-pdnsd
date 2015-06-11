@@ -16,5 +16,4 @@ class pdnsd::config inherits pdnsd {
     ensure  => file,
     content => template("${module_name}/default_pdnsd.erb"),
   }
-
 }
