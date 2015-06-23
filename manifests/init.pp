@@ -12,16 +12,8 @@ class pdnsd (
   $perm_cache         = hiera(pdnsd::perm_cache, 16384)
   $cache_dir          = hiera(pdnsd::cache_dir, '/var/cache/pdnsd')
   $start_daemon       = hiera(pdnsd::start_daemon, 'yes')
+  notice( $start_daemon )
   $preferred_servers  = hiera_hash(pdnsd::preferred_servers, undef )
-
-  validate_absolute_path($config)
-  validate_string($config_template)
-  validate_string($package_ensure)
-  validate_array($package_name)
-  validate_bool($service_enable)
-  validate_string($service_ensure)
-  validate_bool($service_manage)
-  validate_string($service_name)
 
   case $::osfamily {
     'Debian': {
@@ -67,6 +59,14 @@ class pdnsd (
     }
   }
 
+  validate_absolute_path($config)
+  validate_string($config_template)
+  validate_string($package_ensure)
+  validate_array($package_name)
+  validate_bool($service_enable)
+  validate_string($service_ensure)
+  validate_bool($service_manage)
+  validate_string($service_name)
 
   include '::pdnsd::install'
   include '::pdnsd::config'
