@@ -1,5 +1,6 @@
 #
-class pdnsd::config inherits pdnsd {
+class pdnsd::config inherits pdnsd
+{
 
   File {
     owner   => 0,

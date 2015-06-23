@@ -1,3 +1,4 @@
+#
 class pdnsd (
   $config            = $pdnsd::params::config,
   $config_template   = $pdnsd::params::config_template,
