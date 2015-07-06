@@ -12,7 +12,6 @@ class pdnsd (
   $perm_cache         = hiera(pdnsd::perm_cache, 16384)
   $cache_dir          = hiera(pdnsd::cache_dir, '/var/cache/pdnsd')
   $start_daemon       = hiera(pdnsd::start_daemon, 'yes')
-  notice( $start_daemon )
   $preferred_servers  = hiera_hash(pdnsd::preferred_servers, undef )
 
   case $::osfamily {
