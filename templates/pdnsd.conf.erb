@@ -3,7 +3,7 @@ global {
     perm_cache=<%= @perm_cache %>;
     cache_dir=<%= @cache_dir %>;
 #    pid_file = /var/run/pdnsd.pid;
-    run_as="nobody";
+    run_as="pdnsd";
     server_ip = <%= @server_ip %>;  # Use eth0 here if you want to allow other
                 # machines on your network to query pdnsd.
     status_ctl = on;
