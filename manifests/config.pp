@@ -13,8 +13,15 @@ class pdnsd::config inherits pdnsd
     content => template("${module_name}/default_pdnsd.erb"),
   }
 
-  file { $config:
+  file { $::pdnsd::config:
     ensure  => file,
-    content => template($config_template),
+    content => template($::pdnsd::config_template),
+  }
+
+  #we need to prepend 127.0.0.1 to resolv.conf
+  #this in ubuntu dhcp3 specific
+  file { '/etc/dhcp/dhcpclient.conf':
+    ensure => file,
+    source => "puppet:///modules/${module_name}/dhcpclient.conf",
   }
 }
