@@ -17,7 +17,7 @@ class pdnsd (
   case $::osfamily {
     'Debian': {
       $config          = '/etc/pdnsd.conf'
-      $package_name    = 'pdnsd'
+      $package_name    = 'pdns-server'
       $service_name    = 'pdnsd'
     }
     'RedHat': {
