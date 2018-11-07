@@ -11,7 +11,7 @@ class pdnsd (
 
   $perm_cache         = lookup(pdnsd::perm_cache, Integer, 'unique', 16384)
   $cache_dir          = lookup(pdnsd::cache_dir, String, 'unique', '/var/cache/pdnsd')
-  $start_daemon       = lookup(pdnsd::start_daemon, Tuple, 'unique', 'yes')
+  $start_daemon       = lookup(pdnsd::start_daemon, String, 'unique', 'yes')
   $preferred_servers  = lookup(pdnsd::preferred_servers, {merge => 'hash', default_value => undef}) #hash
 
   case $::osfamily {
